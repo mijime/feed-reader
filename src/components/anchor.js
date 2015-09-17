@@ -6,7 +6,8 @@ class Anchor {
   controller () {
     this.handleClick = (e) => {
       e.preventDefault();
-      ipc.send(IPC_OPEN_BROWSER, e.target.href);
+      if (e.target.href)
+        ipc.send(IPC_OPEN_BROWSER, e.target.href);
     }
   }
 
