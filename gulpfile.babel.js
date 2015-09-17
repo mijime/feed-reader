@@ -17,8 +17,8 @@ import map from 'lodash/collection/map';
 
 const $ = gulpLoadPlugins();
 let enabledWatchify = false;
-const platforms = ['win32', 'darwin', 'linux'];
-const archList = ['ia32', 'x64'];
+const platforms = ['win32', 'linux'];
+const archList = ['x64'];
 const {name, version, dependencies} = config;
 
 function consoleNotify (message) {
@@ -143,7 +143,13 @@ gulp.task('browserify', ['eslint'], function () {
 
 gulp.task('package', ['modules', 'default'], function (done) {
   const osDeps = os.type().toString().match('Windows') !== null ?
-    {icon: 'src/app.ico'} : {icon: 'src/icon.incs'}
+    {
+      icon: 'src/app.ico',
+      platform: 'all',
+    } : {
+      icon: 'src/icon.incs',
+      platform: ['darwin', 'linux'],
+    }
 
   return packager({
     ...osDeps,
@@ -152,7 +158,6 @@ gulp.task('package', ['modules', 'default'], function (done) {
     'app-version': version,
     version: '0.32.3',
     out: `app-packages/${version}`,
-    platform: 'all',
     arch: archList,
     prune: true,
     asar: true,
