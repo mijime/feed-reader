@@ -1,6 +1,6 @@
 {
   "name": "FeedReader",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "",
   "main": "browser",
   "scripts": {
@@ -9,6 +9,7 @@
     "watch": "gulp watch",
     "pack": "gulp package",
     "release": "gulp clean && gulp package && gulp zip",
+    "release:github": "ghr 1.0.1 app-releases/1.0.1",
     "test": "mocha --compilers js:babel-core/register",
     "icon:win": "convert -define icon:auto-resize src/app.iconset/icon_512x512@2x.png src/app.ico",
     "icon:mac": "iconutil -c icns src/app.iconset"
