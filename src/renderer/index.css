@@ -1,0 +1,83 @@
+@import "purecss/build/pure.css";
+@import "magic.css/1.1.0/magic.css";
+@import "font-awesome/css/font-awesome.min.css";
+
+@font-face {
+  font-family: 'FontAwesome';
+  src: url('../node_modules/font-awesome/fonts/fontawesome-webfont.eot?v=4.4.0');
+  src: url('../node_modules/font-awesome/fonts/fontawesome-webfont.eot?#iefix&v=4.4.0') format('embedded-opentype'),
+  url('../node_modules/font-awesome/fonts/fontawesome-webfont.woff2?v=4.4.0') format('woff2'),
+  url('../node_modules/font-awesome/fonts/fontawesome-webfont.woff?v=4.4.0') format('woff'),
+  url('../node_modules/font-awesome/fonts/fontawesome-webfont.ttf?v=4.4.0') format('truetype'),
+  url('../node_modules/font-awesome/fonts/fontawesome-webfont.svg?v=4.4.0#fontawesomeregular') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+:root {
+  --backgroundColor: #f8f8f8;
+  --fontColor: #0a2342;
+}
+
+body {
+  background: var(--backgroundColor);
+  color: var(--fontColor);
+  font-family: "Open Sans", "Hiragino Kaku Gothic ProN", Meiryo, Helvetica, Arial, sans-serif;
+}
+
+.feed-item, .entry-item {
+  margin-left: .4em;
+  margin-right: .4em;
+  border-bottom: 1px solid rgba(0, 0, 0, .1);
+  box-shadow: rgba(255,255,255, .4) 0 1px 0;
+}
+
+.feed-item a, .entry-item a {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+
+  text-decoration: none;
+  color: var(--fontColor);
+}
+
+.feed-item a img {
+  width: .8em;
+  height: .8em;
+  padding-right: .4em;
+}
+
+.button-group {
+  float: right;
+  opacity: 0;
+  transition: .5s;
+}
+
+.feed-item:hover .button-group {
+  opacity: 1;
+}
+
+.feed-item:hover .button-group:hover {
+  transform: rotate(180deg);
+}
+
+.feed-form {
+  padding: .4em;
+}
+
+.feed-form button {
+  margin-right: .4em;
+  margin-bottom: .2em;
+  border-bottom: 1px solid rgba(0, 0, 0, .1);
+  box-shadow: rgba(255,255,255, .4) 0 1px 0;
+}
+
+.feed-form input[type=text] {
+  color: var(--fontColor);
+  padding: 0.4em 1em;
+  border-top: 0;
+  border-left: 0;
+  border-right: 0;
+  border-bottom: 1px solid rgba(0, 0, 0, .1);
+  box-shadow: rgba(255,255,255, .4) 0 1px 0;
+}

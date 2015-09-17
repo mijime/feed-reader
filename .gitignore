@@ -1,0 +1,6 @@
+/node_modules
+/tmp
+/app*
+/src/tmp
+.DS_Store
+*.log
