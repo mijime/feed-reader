@@ -32,6 +32,7 @@ function errorHandler ({message, plugin}) {
 }
 
 gulp.task('default', [
+  'package.json',
   'js',
   'browserify',
   'html',
@@ -140,7 +141,7 @@ gulp.task('browserify', ['eslint'], function () {
   return bundle();
 });
 
-gulp.task('package', ['package.json', 'modules', 'default'], function (done) {
+gulp.task('package', ['modules', 'default'], function (done) {
   const osDeps = os.type().toString().match('Windows') !== null ?
     {icon: 'src/app.ico'} : {icon: 'src/icon.incs'}
 
