@@ -111,8 +111,10 @@ gulp.task('browserify', ['eslint'], function () {
     debug: true,
     verbose: true,
   })
+  .exclude('node-notify')
   .exclude('remote')
   .exclude('ipc')
+  .exclude('os')
   .transform(babelify)
   .transform(cssnextify);
 

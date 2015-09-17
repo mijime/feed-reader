@@ -1,11 +1,16 @@
-import Notifier from 'node-notifier';
+import notifier from 'node-notifier';
+import os from 'os';
 
-export default class Notification {
-  constructor (args) {
-    const {title, message = title, icon} = args;
+export default class Notify {
+  constructor (title, args) {
 
-    this.context = Notifier.notify({
-      title, message, icon,
-    });
+    if (os.type().toString().match('Windows') !== null) {
+      const {message = title, icon} = args;
+      this.context = notifier.notify({
+        title, message, icon,
+      });
+    } else {
+      this.context = new Notification(title, args);
+    }
   }
 }
