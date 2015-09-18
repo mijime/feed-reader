@@ -3,6 +3,7 @@ import BrowserWindow from 'browser-window';
 import ipc from 'ipc';
 import shell from 'shell';
 import {IPC_OPEN_BROWSER} from '../constants';
+import setDefaultMenu from './menu';
 
 app.on('window-all-closed', () => app.quit());
 
@@ -13,6 +14,6 @@ app.on('ready', () => {
   ipc.on(IPC_OPEN_BROWSER, function (_, url) {
     return shell.openExternal(url);
   });
-});
 
-console.log('app');
+  setDefaultMenu();
+});
