@@ -53,6 +53,21 @@ body {
   transition: .5s;
 }
 
+.entry-item .description {
+  margin: 0;
+  overflow: hidden;
+
+  opacity: 0;
+  height: 0;
+  transition: .5s;
+}
+
+.entry-item:hover .description {
+  opacity: 1;
+  height: 33%;
+  transition-delay: 2s;
+}
+
 .feed-item:hover .button-group {
   opacity: 1;
 }

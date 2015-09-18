@@ -10,6 +10,7 @@ class EntryList {
             <Anchor className='pure-menu-link' href={entry.link}>
               {entry.title}
             </Anchor>
+            <p className='description'> {m.trust(entry.description)} </p>
           </li>
           ));
 

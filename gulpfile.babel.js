@@ -18,7 +18,7 @@ import map from 'lodash/collection/map';
 const $ = gulpLoadPlugins();
 let enabledWatchify = false;
 const platforms = ['win32', 'linux'];
-const archList = ['ia32', 'x64'];
+const archList = ['x64'];
 const {name, version, dependencies} = config;
 
 function consoleNotify (message) {
@@ -111,7 +111,7 @@ gulp.task('browserify', ['eslint'], function () {
     debug: true,
     verbose: true,
   })
-  .exclude('node-notify')
+  .exclude('node-notifier')
   .exclude('remote')
   .exclude('ipc')
   .exclude('os')

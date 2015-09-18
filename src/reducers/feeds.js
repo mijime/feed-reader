@@ -1,7 +1,7 @@
 import filter from 'lodash/collection/filter';
 import find from 'lodash/collection/find';
 import take from 'lodash/array/take';
-import Notify from '../utils/notification';
+import Notify from '../utils/notify';
 import {
   APPEND_FEED,
   REMOVE_FEED,

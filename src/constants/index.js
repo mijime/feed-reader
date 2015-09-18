@@ -13,5 +13,4 @@ export const FEEDS_PATH = '/feeds';
 export const MAX_FEEDS = 30;
 export const MAX_ENTRIES = 300;
 
-export const IPC_NOTIFICATION = 'IPC_NOTIFICATION';
 export const IPC_OPEN_BROWSER = 'IPC_OPEN_BROWSER';
