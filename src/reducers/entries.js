@@ -1,13 +1,12 @@
 import filter from 'lodash/collection/filter';
 import find from 'lodash/collection/find';
 import take from 'lodash/array/take';
-import ipc from 'ipc';
+import Notify from '../utils/notify';
 import {
   APPEND_ENTRY,
   APPEND_ENTRY_SYNC,
   REMOVE_ENTRIES,
   MAX_ENTRIES,
-  IPC_NOTIFICATION,
 } from '../constants';
 
 function insertSort (fn) {
@@ -43,7 +42,7 @@ export default function entries (state=[], action={}) {
       return state;
 
     const {title} = entry;
-    ipc.send(IPC_NOTIFICATION, title);
+    new Notify(title);
 
     return take([entry].concat(state), MAX_ENTRIES);
 

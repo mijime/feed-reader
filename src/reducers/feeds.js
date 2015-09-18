@@ -1,13 +1,12 @@
 import filter from 'lodash/collection/filter';
 import find from 'lodash/collection/find';
 import take from 'lodash/array/take';
-import ipc from 'ipc';
+import Notify from '../utils/notify';
 import {
   APPEND_FEED,
   REMOVE_FEED,
   INIT_FEEDS,
   MAX_FEEDS,
-  IPC_NOTIFICATION,
 } from '../constants';
 
 export default function feeds (state = [], action = {}) {
@@ -19,7 +18,7 @@ export default function feeds (state = [], action = {}) {
       return state;
 
     const {title} = feed;
-    ipc.send(IPC_NOTIFICATION, title);
+    new Notify(title);
 
     return take([feed].concat(state), MAX_FEEDS);
 
