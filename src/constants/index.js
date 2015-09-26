@@ -14,3 +14,4 @@ export const MAX_FEEDS = 30;
 export const MAX_ENTRIES = 300;
 
 export const IPC_OPEN_BROWSER = 'IPC_OPEN_BROWSER';
+export const IPC_CLOSE_APP = 'IPC_CLOSE_APP';

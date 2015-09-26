@@ -1,19 +1,16 @@
 import app from 'app';
+import menubar from 'menubar';
 import BrowserWindow from 'browser-window';
 import ipc from 'ipc';
 import shell from 'shell';
-import {IPC_OPEN_BROWSER} from '../constants';
-import setDefaultMenu from './menu';
+import {IPC_OPEN_BROWSER, IPC_CLOSE_APP} from '../constants';
 
-app.on('window-all-closed', () => app.quit());
+const index = `file://${__dirname}/../renderer/index.html`;
+const mb = menubar({index});
 
-app.on('ready', () => {
-  const browser = new BrowserWindow({width: 800, height: 600});
-  browser.loadUrl(`file://${__dirname}/../renderer/index.html`);
-
+mb.on('ready', () => {
+  ipc.on(IPC_CLOSE_APP, () => app.quit());
   ipc.on(IPC_OPEN_BROWSER, function (_, url) {
     return shell.openExternal(url);
   });
-
-  setDefaultMenu();
 });

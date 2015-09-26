@@ -1,5 +1,7 @@
 import m from 'mithril';
-import createFetchFeed from '../streams/fetch-feed'
+import ipc from 'ipc';
+import createFetchFeed from '../streams/fetch-feed';
+import {IPC_CLOSE_APP} from '../constants';
 
 class FeedForm {
   controller (props) {
@@ -50,8 +52,13 @@ class FeedForm {
     const {inputURL, handleFeedButton} = controller;
     const {feeds} = props;
 
+    const close = () => ipc.send(IPC_CLOSE_APP);
+
     return (
         <form className='feed-form' onsubmit={handleFeedButton(feeds)}>
+          <button className='pure-button' onclick={close}>
+            <i class="fa fa-close"></i>
+          </button>
           <button className='pure-button'>
             <i class="fa fa-rss"></i>
           </button>

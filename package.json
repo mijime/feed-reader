@@ -66,6 +66,7 @@
   },
   "dependencies": {
     "font-awesome": "^4.4.0",
+    "menubar": "^2.2.1",
     "node-notifier": "^4.2.3"
   }
 }
